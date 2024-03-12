@@ -1,5 +1,14 @@
+* {
+    box-sizing: border-box;
+}
+
+
+
 body {
-    font-family: sans-serif;
+    font-family: 'Quicksand',sans-serif;
+    /* Untuk menghindari celah pada tampilan web browser*/
+    margin: 0;
+    padding: 0;
 }
 
 h2 {
@@ -14,4 +23,166 @@ footer {
     padding: 20px;
     color: white;
     background-color: #00a2c6;
+    text-align: center;
+    font-weight: bold;
 }
+
+nav a {
+    font-size: 18px;
+    font-weight: 400;
+    text-decoration: none;
+
+    color: white;
+}
+
+nav a:hover {
+    font-weight: bold;
+}
+
+.profile header {
+    text-align: center;
+}
+
+.featured-image {
+    width: 100%;
+    max-height: 300px;
+    object-fit: cover;
+    object-position: center;
+}
+
+.profile img {
+    width: 200px;
+}
+
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    border-radius: 5px;
+
+    padding: 20px;
+/*
+Memperbaiki tampilan konten dalam card agar tidak terlalu sempit dari sisi elemennya
+*/
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.jumbotron{
+    font-size: 20px;
+    padding: 60px;
+    background-color: #00c8eb;
+    text-align: center;
+    color: white;
+}
+
+/*
+Menggunakan selector nav li untuk mengatur elemen <li> yang menjadi turunan dari elemen <nav> selain dari turunan <ul>
+*/
+nav ul {
+    padding-inline: 4rem;
+    display: flex;
+
+    gap: 2rem;
+}
+nav li{
+    /* Properti list-style-type dengan nilai none akan menghilangkan tanda titik yang dihasilkan bagi setiap item pada list*/
+    list-style-type: none;
+}
+
+nav{
+    background-color: #00a2c6;
+    padding: 5px;
+
+    position: sticky;
+    top: 0;
+    /*Nilai top: 0 diperlukan agar elemen navigasi selalu berapa di atas jendela browser saat user melakukan scrolling*/
+}
+
+main{
+    padding: 20px;
+
+    display: flex;
+    gap: 1.5rem;
+
+}
+
+#content{
+    flex: 5;
+
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 1rem 2rem;
+}
+
+aside{
+    flex: 1;
+}
+
+header {
+    display: inline;
+}
+
+/* Perangkat dengan lebar layar 1200px dan di bawahnya*/
+@media screen and {max-width: 1200px;
+    main {
+        flex-flow: column nowrap;
+    }
+
+    main aside {
+        align-self: center;
+    }
+}
+
+/* Perangkat dengan lebar layar 768px dan di bawahnya*/
+@media screen and (max-width: 768px){
+    nav ul {
+        justify-content: center;
+    }
+
+    main aside {
+        align-self: stretch;
+    }
+}
+
+/* 
+Dengan menerapkan media query, halaman dapat menyesuaikan tampilan ketika diakses pada mobile device
+Pada kode di atas, kita menerapkan media query dengan rincian sebagai berikut.
+Media yang digunakan untuk menerapkan styling adalah layar perangkat dan kita pilih “screen”.
+Aturan kode styling akan ditetapkan pada saat ukuran lebar viewport maksimal 1000 piksel. Dengan kata lain, styling akan diterapkan jika lebar viewport di bawah 1000 piksel.
+Terapkan lebar elemen sebesar 100% pada elemen <div id="content"> dan <aside> terhadap elemen induknya (parent element) supaya elemen sejajar secara vertikal (atas-bawah).*/
+
+/* Tampilan web akan kacau karena tinggi elemen <main> sebesar 0 piksel
+Dikarenakan elemen #content dan <aside> dianggap tidak ada oleh elemen <main>
+sehingga elemen dibawahnya(<footer>) akan naik mengisi ruang kosong
+
+Agar tidak seperti demikian, kita perlu tetapkan overflow: auto pada elemen <main>*/
+/* // <uniquifier>: Use a unique and descriptive class name
+// <weight>: Use a value from 300 to 700
+
+.quicksand-<uniquifier> {
+  font-family: "Quicksand", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
+}
+
+   /* Nilai inline pada properti display menyebabkan elemen akan ditampilkan tanpa membuat baris baru*/
+   /*display: inline;*
+
+https://www.cssmatic.com/box-shadow . untuk menentukan porsi drop shadow
+
+ <!-- My Own Styles -->
+  <link rel="stylesheet" href="assets/styles/style.css" />
+ 
+
+Google fonts
+  <link rel='preconnect' href='https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap"
+    rel="stylesheet"
+  />
+
+LINK WEB UNTUK MENCARI KESALAHAN CSS:
+- CSS Validation Service by W3C
+- CSS Validator Online by codebeautify.org
+- CSS Lint
